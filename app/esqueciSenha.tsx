@@ -3,16 +3,15 @@ import { Text, View, Image } from "react-native";
 import styles from "./css/style";
 import { Link } from "expo-router";
 import FormField from "./components/FormField";
+import Button from "./components/Button";
+import HeaderImage from "./components/HeaderImage";
+import ButtonArea from "./components/ButtonArea";
+import BottomLinks from "./components/BottomLinks";
 
 export default function EsqueciSenha() {
   return (
     <View style={styles.container}>
-      <View>
-        <Image
-          style={styles.img}
-          source={require("../assets/sesisenai.png")}
-        />
-      </View>
+      <HeaderImage />
 
       <View style={styles.form}>
         <FormField
@@ -21,24 +20,10 @@ export default function EsqueciSenha() {
           secure={false}
         />
 
-        <View style={styles.contBaixo}>
-          <View style={styles.baixo}>
-            <Link href={"/login"} style={styles.direita}>
-              Voltar para login
-            </Link>
-          </View>
-        </View>
+        <BottomLinks links={[{text: "Voltar para login", href: "/login"}]} />
       </View>
 
-      <View>
-        <Link href={""} style={styles.botao}>
-          <View style={styles.btn}>
-            <Text style={styles.entrar}>
-              ENVIAR EMAIL
-            </Text>
-          </View>
-        </Link>
-      </View>
+      <ButtonArea text="ENVIAR EMAIL" />
 
       <StatusBar style="auto" />
     </View>
